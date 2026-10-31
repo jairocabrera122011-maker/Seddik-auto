@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101416">
+<title>Seddik Auto | Taller mecánico en Sant Vicenç dels Horts</title>
+<meta name="description" content="Taller mecánico en Sant Vicenç dels Horts. Revisión, mecánica general y diagnosis. Llama al 605 38 71 75.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* TOKENS: cambia aquí colores y fuentes */
+:root {
+  --bg: #101416;
+  --surface: #181e21;
+  --line: #2a3337;
+  --fg: #eef1f2;
+  --muted: #9aa5aa;
+  --accent: #f2a900;      /* amarillo aceite */
+  --accent-fg: #14100a;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "Barlow", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--f-body); padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+.wrap { max-width: 1040px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; line-height: .98; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(2rem, 6vw, 3rem); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.tag { font: 600 .78rem var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+
+/* CABECERA */
+header { display: flex; justify-content: space-between; align-items: center; gap: 12px 20px; flex-wrap: wrap; padding-block: 18px; }
+.logo { font: 800 1.7rem var(--f-display); text-transform: uppercase; letter-spacing: .03em; text-decoration: none; }
+.logo span { color: var(--accent); }
+nav { display: flex; gap: 20px; font-weight: 500; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--fg); }
+
+/* BOTONES */
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--accent-fg); font: 700 1rem var(--f-body); padding: 14px 22px; border-radius: 4px; text-decoration: none; border: 0; cursor: pointer; }
+.btn:hover { filter: brightness(1.1); }
+.btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+.btn.ghost:hover { border-color: var(--accent); }
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* HERO */
+.hero { padding-block: 48px 64px; border-top: 0; }
+.hero h1 { font-size: clamp(3.2rem, 11vw, 7rem); margin-block: 14px 20px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p { color: var(--muted); max-width: 46ch; margin: 0 0 28px; font-size: 1.1rem; }
+
+/* DIAGNÓSTICO: lo interactivo */
+.diag { background: var(--surface); border: 1px solid var(--line); padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; }
+.diag > * { min-width: 0; }
+.opts { display: flex; flex-direction: column; gap: 8px; }
+.opts button { text-align: left; background: transparent; color: var(--fg); border: 1px solid var(--line); padding: 12px 14px; font: 500 1rem var(--f-body); cursor: pointer; border-radius: 4px; }
+.opts button:hover { border-color: var(--muted); }
+.opts button[aria-pressed="true"] { border-color: var(--accent); background: rgba(242,169,0,.1); }
+.result h3 { font-size: 1.9rem; margin: 10px 0 8px; }
+.result p { color: var(--muted); margin: 0 0 20px; }
+.result .say { margin: 14px 0 0; font-size: .95rem; }
+
+/* SERVICIOS */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 28px; }
+.card { border-top: 3px solid var(--accent); background: var(--surface); padding: 22px; }
+.card h3 { font-size: 1.6rem; margin-bottom: 8px; }
+.card p { color: var(--muted); margin: 0; font-size: .97rem; }
+
+/* CONTACTO */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.contact > * { min-width: 0; }
+.phone { font: 800 clamp(2.6rem, 9vw, 4.6rem)/1 var(--f-display); letter-spacing: .02em; margin: 14px 0 20px; }
+dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 18px; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+.note { color: var(--muted); font-size: .85rem; margin-top: 14px; }
+footer { border-top: 1px solid var(--line); padding-block: 22px 40px; color: var(--muted); font-size: .9rem; }
+
+@media (max-width: 760px) { .diag, .contact { grid-template-columns: 1fr; } nav { gap: 14px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="logo" href="#inicio">Seddik<span>Auto</span></a>
+    <nav>
+      <a href="#diagnostico">¿Qué le pasa?</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="tag">Taller mecánico · Sant Vicenç dels Horts</div>
+    <h1>Tu coche, <em>en buenas manos.</em></h1>
+    <p>Revisión, mecánica general y diagnosis en Carrer Nou, 118. Llámanos, cuéntanos qué le pasa a tu coche y te decimos por dónde empezar.</p>
+    <div class="row">
+      <a class="btn" href="tel:+34605387175">Llamar al 605 38 71 75</a>
+      <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Carrer+Nou+118+Sant+Vicen%C3%A7+dels+Horts" target="_blank" rel="noopener">Cómo llegar</a>
+    </div>
+  </section>
+
+  <!-- DIAGNÓSTICO: el usuario elige un síntoma y ve qué decir al llamar -->
+  <section id="diagnostico">
+    <div class="tag">Pídelo en 10 segundos</div>
+    <h2 style="margin-top:10px">¿Qué le pasa a tu coche?</h2>
+    <div class="diag">
+      <div class="opts" id="opts" role="group" aria-label="Elige el problema"></div>
+      <div class="result" aria-live="polite">
+        <div class="tag">Te recomendamos</div>
+        <h3 id="r-title"></h3>
+        <p id="r-text"></p>
+        <a class="btn" href="tel:+34605387175">Llamar y pedir cita</a>
+        <p class="say" id="r-say"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="tag">Qué hacemos</div>
+    <h2 style="margin-top:10px">Servicios</h2>
+    <div class="grid">
+      <article class="card"><h3>Revisión y mantenimiento</h3><p>Aceite, filtros, frenos, correa y puesta a punto antes de viajar.</p></article>
+      <article class="card"><h3>Mecánica general</h3><p>Reparación de motor, suspensión, embrague, escape y más.</p></article>
+      <article class="card"><h3>Diagnosis</h3><p>Leemos la avería con el equipo de diagnosis y te explicamos qué tiene y cuánto cuesta.</p></article>
+      <article class="card"><h3>Neumáticos y frenos</h3><p>Cambio, alineado y revisión del estado de frenos.</p></article>
+    </div>
+    <p class="note">Servicios de ejemplo: confirmar con el taller antes de publicar.</p>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div>
+      <div class="tag">Hablemos de tu coche</div>
+      <div class="phone">605 38 71 75</div>
+      <div class="row">
+        <a class="btn" href="tel:+34605387175">Llamar ahora</a>
+      </div>
+    </div>
+    <div>
+      <dl>
+        <dt>Dirección</dt><dd>Carrer Nou, 118<br>Sant Vicenç dels Horts</dd>
+        <dt>Horario</dt><dd>Lunes a viernes: 9:00–13:30 y 15:00–19:00 <span style="color:var(--muted)">(ejemplo)</span></dd>
+      </dl>
+      <p style="margin-top:18px"><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Carrer+Nou+118+Sant+Vicen%C3%A7+dels+Horts" target="_blank" rel="noopener">Cómo llegar</a></p>
+      <p class="note">El horario es un ejemplo: pedirlo al dueño.</p>
+    </div>
+  </section>
+
+  <footer>Propuesta de diseño no oficial · Seddik Auto, taller mecánico en Sant Vicenç dels Horts</footer>
+</div>
+
+<script>
+/* Lista de problemas: añade o cambia líneas para adaptarla al taller.
+   "say" es la frase que se le sugiere decir al cliente cuando llame. */
+const PROBLEMS = [
+  { label: "Luz de avería encendida", title: "Diagnosis", text: "Conectamos el equipo, leemos el código y te decimos qué falla antes de tocar nada.", say: "Tengo una luz de avería encendida." },
+  { label: "Ruido al frenar", title: "Revisión de frenos", text: "Miramos pastillas, discos y líquido. Frenar bien es lo primero.", say: "Mi coche hace ruido al frenar." },
+  { label: "Toca cambiar el aceite", title: "Mantenimiento", text: "Cambio de aceite y filtros, y revisión de niveles en el mismo rato.", say: "Quiero cambiar el aceite y los filtros." },
+  { label: "Humo o pérdida de potencia", title: "Mecánica general", text: "Revisamos motor y escape para encontrar la causa.", say: "Mi coche pierde potencia o echa humo." },
+  { label: "Voy a hacer un viaje largo", title: "Revisión pre-viaje", text: "Neumáticos, frenos, niveles y luces. Sales tranquilo.", say: "Quiero una revisión antes de un viaje largo." }
+];
+const opts = document.getElementById("opts");
+const rTitle = document.getElementById("r-title");
+const rText = document.getElementById("r-text");
+const rSay = document.getElementById("r-say");
+function show(i) {
+  const p = PROBLEMS[i];
+  rTitle.textContent = p.title;
+  rText.textContent = p.text;
+  rSay.textContent = "Al llamar, puedes decir: «" + p.say + "»";
+  opts.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-pressed", j === i));
+}
+PROBLEMS.forEach((p, i) => {
+  const b = document.createElement("button");
+  b.type = "button"; b.textContent = p.label;
+  b.addEventListener("click", () => show(i));
+  opts.appendChild(b);
+});
+show(0);
+</script>
+</body>
+</html>
